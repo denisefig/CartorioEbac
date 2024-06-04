@@ -31,32 +31,32 @@ int registro()		// Função resposável por cadastrar os usuários do sistema
 	scanf("%s",nome); // armazenando as strings 
 	
 	file = fopen(arquivo, "a"); //abrir o arquivo
-	fprintf(file,nome);
-	fclose(file);
+	fprintf(file,nome); // salvor o valor da variavel
+	fclose(file); // fecha o arquivo
 	
-	file = fopen(arquivo, "a");
-	fprintf(file,",");
-	fclose(file);
+	file = fopen(arquivo, "a"); //abrir o arquivo
+	fprintf(file,","); //incluir "," entre as informações
+	fclose(file); // fecha o arquivo
 	
 	printf("Digite o sobrenome a ser cadastrado: ");// coletandoinformações do usuário
 	scanf("%s",sobrenome); //armazanand as strings
 	
-	file = fopen(arquivo, "a");
-	fprintf(file,sobrenome);
+	file = fopen(arquivo, "a");//abrir o arquivo
+	fprintf(file,sobrenome); // salvor o valor da variavel
 	fclose(file);
 	
-	file = fopen(arquivo, "a");
-	fprintf(file,",");
-	fclose(file);
+	file = fopen(arquivo, "a"); //abrir o arquivo
+	fprintf(file,","); //incluir "," entre as informações
+	fclose(file); // fecha o arquivo
 	
-	printf("Digite o cargo a ser cadastrado: ");
-	scanf("%s",cargo);
+	printf("Digite o cargo a ser cadastrado: "); // coletandoinformações do usuário
+	scanf("%s",cargo); // armazenando as strings 
 	
-	file = fopen(arquivo, "a");
-	fprintf(file,cargo);
-	fclose(file);	
+	file = fopen(arquivo, "a"); //abrir o arquivo
+	fprintf(file,cargo); // salvor o valor da variavel
+	fclose(file);	// fecha o arquivo
 	
-    system("pause");
+    system("pause"); // responsável por pausar a tela
 
 }
 
@@ -67,11 +67,11 @@ int consulta()
 	char cpf[40];
 	char conteudo[200];
 	
-	printf("Digite o CPF a ser consultado: ");
-	scanf("%s",cpf);
+	printf("Digite o CPF a ser consultado: "); // coletandoinformações do usuário
+	scanf("%s",cpf); // armazenando as strings
   	
 	FILE *file;
-	file = fopen(cpf,"r");
+	file = fopen(cpf,"r"); 
   	
 	if(file == NULL)
 	{
@@ -85,15 +85,15 @@ int consulta()
 	printf("\n\n");
 	}	
   	
-	system ("pause");
+	system ("pause"); // responsável por pausar a tela
 }
 
 int deletar()
 {
 	char cpf[40];
 	
-	printf("Digite o CPF do usuário a ser deletado: ");
-	scanf("%s",cpf);
+	printf("Digite o CPF do usuário a ser deletado: "); // coletandoinformações do usuário
+	scanf("%s",cpf); // armazenando as strings
 	
 	remove(cpf);
 	
@@ -104,13 +104,13 @@ int deletar()
 	if(file== NULL)
 	{
 		printf("O usuário não se encontra no sistema!\n");
-		system("pause");
+		system("pause"); // responsável por pausar a tela
 	}			
 		
 	if(file!= NULL)
 	{
 		printf("O usuário foi deletado com sucesso!\n");
-		system("pause");
+		system("pause"); // responsável por pausar a tela
 	}
 }
 
@@ -123,7 +123,7 @@ int main()
 	for(laco=1;laco=1;)
 	{
 
-		system("cls");
+		system("cls"); // responsável por limpar a tela
 
 		setlocale(LC_ALL, "Portuguese"); //Definindo a linguagem
 			
@@ -131,7 +131,8 @@ int main()
 		printf("Escolha a opção desejada do menu\n\n");
 		printf("\t1 - Registrar nomes\n");
 		printf("\t2 - Consultar nomes\n");
-		printf("\t3 - Deletar   nomes\n\n"); 
+		printf("\t3 - Deletar   nomes\n"); 
+		printf("\t4 - Sair do sistema\n\n"); 
 		printf("Opção: ");//fim do menu
 				
 		scanf("%d", &opcao); //armazenando a escolha do usuário
@@ -145,16 +146,22 @@ int main()
 			break;
 			
 			case 2:
-			consulta();
+			consulta(); // chamada de funçóes
 			break;
 		
 			case 3:
-			deletar();
+			deletar(); // chamada de funçóes
 			break;
+			
+			case 4:
+			printf("Obrigada por utilizar o sistema!\n"); 
+			return 0;
+			break;
+			
 		
 			default:
 			printf("Essa opção não está disponível!\n");
-			system("pause");
+			system("pause"); // responsável por pausar a tela
 			break;
 		} //fim da seleção
 			
